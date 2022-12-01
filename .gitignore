@@ -1,1 +1,6 @@
 /infrastructure/.terraform/
+/api/node_modules/
+/.idea/
+/api/dist.zip
+/api/dist/
+/infrastructure/terraform.tfstate.d/
