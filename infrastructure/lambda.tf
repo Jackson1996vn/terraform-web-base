@@ -30,4 +30,11 @@ resource "aws_lambda_function" "web_base_lambda_function" {
   ]
 }
 
+resource "aws_lambda_permission" "web_base_function_permission_api_gateway" {
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.web_base_lambda_function.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn = "${aws_api_gateway_rest_api.web_base_rest_api.execution_arn}/*/*"
+}
+
 

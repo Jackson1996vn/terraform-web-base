@@ -3,4 +3,3 @@
 /.idea/
 /api/dist.zip
 /api/dist/
-/infrastructure/terraform.tfstate.d/

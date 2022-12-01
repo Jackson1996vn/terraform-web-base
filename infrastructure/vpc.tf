@@ -30,6 +30,11 @@ resource "aws_security_group" "web_base_security_group" {
   name = "web_base_security_group_${terraform.workspace}"
   description = "Web base security group access for all ips in vpc"
   vpc_id = aws_vpc.web_base_system_vpc.id
+  revoke_rules_on_delete = true
+  lifecycle {
+    create_before_destroy = true
+    prevent_destroy = false
+  }
   depends_on = [
     aws_vpc.web_base_system_vpc
   ]
