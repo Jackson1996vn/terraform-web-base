@@ -37,6 +37,9 @@ resource "aws_api_gateway_integration" "web_base_api_gateway_integration" {
   integration_http_method = "POST"
   uri                     = aws_lambda_function.web_base_lambda_function.invoke_arn
   passthrough_behavior    = "WHEN_NO_MATCH"
+  depends_on = [
+    aws_api_gateway_method.web_base_api_gateway_method
+  ]
 }
 
 resource "aws_api_gateway_deployment" "web_base_api_gateway_deployment" {

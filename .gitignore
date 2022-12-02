@@ -3,3 +3,5 @@
 /.idea/
 /api/dist.zip
 /api/dist/
+/webapp/.angular/
+/webapp/.vscode/

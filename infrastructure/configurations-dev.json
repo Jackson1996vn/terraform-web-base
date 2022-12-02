@@ -1,5 +1,8 @@
 {
     "webBaseFunctionName": "WebBaseFunctionName",
     "accountId": "364489674724",
-    "region": "ap-southeast-2"
+    "region": "ap-southeast-2",
+    "bucketStorageName": "web-base-storage",
+    "bucketHostName": "web-base-host",
+    "healthCheckPath": "health-check"
 }

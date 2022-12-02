@@ -11,6 +11,8 @@ resource "aws_lambda_function" "web_base_lambda_function" {
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   role = aws_iam_role.system_assume_role.arn
   filename = "../api/dist.zip"
+  memory_size = 512
+  timeout = 120
   vpc_config {
     security_group_ids = [
       aws_security_group.web_base_security_group.id
@@ -20,6 +22,13 @@ resource "aws_lambda_function" "web_base_lambda_function" {
       aws_subnet.web_base_system_subnet2.id,
       aws_subnet.web_base_system_subnet3.id
     ]
+  }
+  environment {
+    variables = {
+      PORT = 5000
+      REGION = local.configurations.region
+      BUCKET_NAME = local.configurations.bucketStorageName
+    }
   }
   depends_on = [
     aws_vpc.web_base_system_vpc,

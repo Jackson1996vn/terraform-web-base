@@ -5,6 +5,10 @@ resource "aws_vpc" "web_base_system_vpc" {
 resource "aws_subnet" "web_base_system_subnet1" {
   vpc_id = aws_vpc.web_base_system_vpc.id
   cidr_block = "10.0.16.0/24"
+  lifecycle {
+    create_before_destroy = true
+    prevent_destroy = false
+  }
   depends_on = [
     aws_vpc.web_base_system_vpc
   ]
@@ -13,6 +17,10 @@ resource "aws_subnet" "web_base_system_subnet1" {
 resource "aws_subnet" "web_base_system_subnet2" {
   vpc_id = aws_vpc.web_base_system_vpc.id
   cidr_block = "10.0.32.0/24"
+  lifecycle {
+    create_before_destroy = true
+    prevent_destroy = false
+  }
   depends_on = [
     aws_vpc.web_base_system_vpc
   ]
@@ -21,6 +29,10 @@ resource "aws_subnet" "web_base_system_subnet2" {
 resource "aws_subnet" "web_base_system_subnet3" {
   vpc_id = aws_vpc.web_base_system_vpc.id
   cidr_block = "10.0.48.0/24"
+  lifecycle {
+    create_before_destroy = true
+    prevent_destroy = false
+  }
   depends_on = [
     aws_vpc.web_base_system_vpc
   ]
