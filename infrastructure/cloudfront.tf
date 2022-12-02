@@ -7,7 +7,7 @@ resource "aws_cloudfront_distribution" "web_base_distribution" {
   aliases = []
   origin {
     origin_id = aws_s3_bucket.web_base_bucket_host.arn
-    domain_name = aws_s3_bucket.web_base_bucket_host.bucket_domain_name
+    domain_name = aws_s3_bucket.web_base_bucket_host.bucket_regional_domain_name
     s3_origin_config {
       origin_access_identity = aws_cloudfront_origin_access_identity.web_base_origin_access_identity.cloudfront_access_identity_path
     }
